@@ -36,10 +36,10 @@ val Typography = Typography(
 )
 
 private val Inter = FontFamily(
-    Font(R.font.Inter_Bold, FontWeight.Bold),
-    Font(R.font.Inter_Medium, FontWeight.Medium),
-    Font(R.font.Inter_Regular, FontWeight.Normal),
-    Font(R.font.Inter_SemiBold, FontWeight.SemiBold)
+    Font(R.font.inter_bold, FontWeight.Bold),
+    Font(R.font.inter_medium, FontWeight.Medium),
+    Font(R.font.inter_regular, FontWeight.Normal),
+    Font(R.font.inter_semibold, FontWeight.SemiBold)
 )
 
 object Type {
