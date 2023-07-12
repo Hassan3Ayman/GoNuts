@@ -2,9 +2,11 @@ package com.example.gonuts.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.example.gonuts.R
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -32,3 +34,43 @@ val Typography = Typography(
     )
     */
 )
+
+private val Inter = FontFamily(
+    Font(R.font.Inter_Bold, FontWeight.Bold),
+    Font(R.font.Inter_Medium, FontWeight.Medium),
+    Font(R.font.Inter_Regular, FontWeight.Normal),
+    Font(R.font.Inter_SemiBold, FontWeight.SemiBold)
+)
+
+object Type {
+
+    val LargeText = TextStyle(
+        fontFamily = Inter,
+        fontWeight = FontWeight.Bold,
+        fontSize = text54,
+    )
+
+    val HeadLine = TextStyle(
+        fontFamily = Inter,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = text30,
+    )
+
+    val Title = TextStyle(
+        fontFamily = Inter,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = text20,
+    )
+
+    val SubTitle = TextStyle(
+        fontFamily = Inter,
+        fontWeight = FontWeight.Medium,
+        fontSize = text16,
+    )
+
+    val Body = TextStyle(
+        fontFamily = Inter,
+        fontWeight = FontWeight.Normal,
+        fontSize = text12,
+    )
+}
