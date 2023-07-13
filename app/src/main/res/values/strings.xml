@@ -3,4 +3,7 @@
     <string name="welcome_text">Gonuts with Donuts</string>
     <string name="welcome_text_body">Gonuts with Donuts is a Sri Lanka dedicated food outlets for specialize manufacturing of Donuts in Colombo, SriLanka.</string>
     <string name="get_started">Get Started</string>
+    <string name="home_title">Let’s Gonuts!</string>
+    <string name="home_subtitle">Order your favourite donuts from here</string>
+    <string name="today_offers">Today Offers</string>
 </resources>

@@ -23,3 +23,5 @@ val MidnightBlue = Color(0x66130F26)
 
 val Background = Color(0xFFEBEBEB)
 val Card1 = Color(0xFFD7E4F6)
+
+val colorless = Color(0x0)

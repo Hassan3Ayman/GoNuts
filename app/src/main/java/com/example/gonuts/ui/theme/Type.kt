@@ -65,7 +65,7 @@ object Type {
     val SubTitle = TextStyle(
         fontFamily = Inter,
         fontWeight = FontWeight.Medium,
-        fontSize = text16,
+        fontSize = text14,
     )
 
     val Body = TextStyle(
