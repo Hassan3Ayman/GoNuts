@@ -1,4 +1,4 @@
-package com.example.gonuts.ui.screens
+package com.example.gonuts.ui.screens.welcome
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,10 +17,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import com.example.gonuts.R
 import com.example.gonuts.ui.composables.SpaceVertical20
 import com.example.gonuts.ui.composables.SpaceVertical60
+import com.example.gonuts.ui.screens.home.navigateToHome
 import com.example.gonuts.ui.theme.Black
 import com.example.gonuts.ui.theme.LightSalmon
 import com.example.gonuts.ui.theme.PalePink
@@ -30,23 +31,22 @@ import com.example.gonuts.ui.theme.space12
 import com.example.gonuts.ui.theme.space40
 
 @Composable
-fun WelcomeScreen(){
-    welcomeContent()
+fun WelcomeScreen(navHostController: NavHostController) {
+    welcomeContent { navHostController.navigateToHome() }
 }
 
 @Composable
-@Preview(showBackground = true)
-private fun welcomeContent() {
+private fun welcomeContent(onClickToHome: () -> Unit) {
     Box(
         modifier = Modifier.fillMaxSize()
     ){
-        textColumns()
+        textColumns(onClickToHome)
         backgroundImage()
     }
 }
 
 @Composable
-fun textColumns(){
+fun textColumns(onClickToHome: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -71,7 +71,7 @@ fun textColumns(){
         )
 
         SpaceVertical60()
-        button(onClick = {}, text = stringResource(id = R.string.get_started))
+        button(onClick = onClickToHome, text = stringResource(id = R.string.get_started))
     }
 }
 
