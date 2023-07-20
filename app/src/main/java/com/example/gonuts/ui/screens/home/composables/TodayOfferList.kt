@@ -1,5 +1,6 @@
 package com.example.gonuts.ui.screens.home.composables
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,6 +24,10 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -39,6 +44,7 @@ import com.example.gonuts.ui.composables.SpaceVertical24
 import com.example.gonuts.ui.theme.BabyPink
 import com.example.gonuts.ui.theme.Black
 import com.example.gonuts.ui.theme.Black60
+import com.example.gonuts.ui.theme.LightSalmon
 import com.example.gonuts.ui.theme.Salmon
 import com.example.gonuts.ui.theme.Type
 import com.example.gonuts.ui.theme.space16
@@ -121,10 +127,15 @@ fun todayOfferItem(onClickOffered: (Int) -> Unit, id: Int) {
 fun favouriteButton(
     modifier: Modifier = Modifier
 ) {
+    var isClicked by remember {
+        mutableStateOf(false)
+    }
+
+    val background by animateColorAsState(targetValue = if (isClicked) LightSalmon else Color.White)
     Icon(
         modifier = modifier
             .clip(CircleShape)
-            .background(Color.White)
+            .background(background)
             .padding(top = 9.dp, start = 8.dp, end = 7.dp, bottom = 7.dp),
         painter = painterResource(id = R.drawable.ic_love),
         contentDescription = "love it",

@@ -7,5 +7,6 @@ data class DetailsUiState(
     val description: String = "",
     val Price: String = "",
     val isFavorite: Boolean = false,
-    val quantity: Int = 0
+    val quantity: Int = 0,
+    val isLoading: Boolean = true
 ): BaseUiState

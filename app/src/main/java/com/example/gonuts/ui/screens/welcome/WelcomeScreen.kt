@@ -1,5 +1,10 @@
 package com.example.gonuts.ui.screens.welcome
 
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -7,16 +12,19 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.gonuts.R
 import com.example.gonuts.ui.composables.SpaceVertical20
@@ -77,9 +85,28 @@ fun textColumns(onClickToHome: () -> Unit) {
 
 @Composable
 fun backgroundImage(){
+    val transition = rememberInfiniteTransition()
+    val offsetY by transition.animateFloat(
+        initialValue = -10f,
+        targetValue = 10f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(5000),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
+
+    val offsetX by transition.animateFloat(
+        initialValue = -10f,
+        targetValue = 10f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(5000),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
     Image(
         modifier = Modifier.
-        fillMaxWidth(),
+        fillMaxWidth()
+            .offset(x = offsetX.dp, y = offsetY.dp),
         painter = painterResource(id = R.drawable.welcome_image),
         contentDescription = "",
         contentScale = ContentScale.Crop

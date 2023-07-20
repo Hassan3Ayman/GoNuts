@@ -1,6 +1,8 @@
 package com.example.gonuts.ui.screens.details.composables
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,6 +16,10 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,6 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.gonuts.R
 import com.example.gonuts.ui.theme.Black
+import com.example.gonuts.ui.theme.LightSalmon
 import com.example.gonuts.ui.theme.Salmon
 import com.example.gonuts.ui.theme.Type
 
@@ -63,14 +70,18 @@ fun DetailsFooter(){
 fun FavoriteButton(
     modifier: Modifier = Modifier
 ){
-
+    var isClicked by remember {
+        mutableStateOf(false)
+    }
+    val background by animateColorAsState(targetValue = if (isClicked) LightSalmon else Color.White)
     Row(modifier = modifier) {
         Icon(
             modifier = Modifier
                 .size(45.dp)
                 .shadow(elevation = 10.dp, shape = RoundedCornerShape(16.dp))
                 .clip(RoundedCornerShape(16.dp))
-                .background(Color.White)
+                .clickable { isClicked = !isClicked }
+                .background(background)
                 .padding(8.dp),
             painter = painterResource(id = R.drawable.ic_like),
             contentDescription = "",

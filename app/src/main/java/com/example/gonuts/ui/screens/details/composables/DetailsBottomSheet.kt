@@ -52,7 +52,7 @@ fun DetailsBottomSheet(
         )
         Spacer(modifier = Modifier.height(26.dp))
         QuantityButtons()
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(30.dp))
         DetailsFooter()
     }
 }
